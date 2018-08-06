@@ -3,7 +3,7 @@ using VanThuanShop.Model.Models;
 
 namespace VanThuanShop.Data.Repositories
 {
-    public interface IProductRepository
+    public interface IProductRepository : IRepository<Product>
     {
     }
 
