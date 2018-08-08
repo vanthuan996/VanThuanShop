@@ -13,7 +13,7 @@ namespace VanThuanShop.Data.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201808060350429_InitialDB"; }
+            get { return "201808070641413_InitialDB"; }
         }
         
         string IMigrationMetadata.Source
