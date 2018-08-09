@@ -21,11 +21,12 @@ namespace VanThuanShop.UnitTest.RepositoryTest
             unitOfWork = new UnitOfWork(dbFactory);
         }
 
+
         [TestMethod]
         public void PostCategory_Repository_GetAll()
         {
             var list = objRepository.GetAll().ToList();
-            Assert.AreEqual(3, list.Count);
+            Assert.AreEqual(2, list.Count);
         }
 
         [TestMethod]
