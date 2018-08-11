@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -8,7 +9,7 @@ using VanThuanShop.Model.Models;
 
 namespace VanThuanShop.Data
 {
-    public class VanThuanShopDbContext : DbContext
+    public class VanThuanShopDbContext : IdentityDbContext<ApplicationUser>
     {
         public VanThuanShopDbContext() : base("VanThuanShopConnection")
         {
@@ -38,9 +39,15 @@ namespace VanThuanShop.Data
 
         public DbSet<Error> Errors { set; get; }
 
+        public static VanThuanShopDbContext Create()
+        {
+            return new VanThuanShopDbContext();
+        }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<IdentityUserRole>().HasKey(i => new { i.UserId, i.RoleId });
+            modelBuilder.Entity<IdentityUserLogin>().HasKey(i => i.UserId);
         }
 
     }
